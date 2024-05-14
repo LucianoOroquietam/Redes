@@ -5,19 +5,29 @@ node n1 {
 	hostname R1
 	!
 	interface eth2
-	 ip address 10.0.1.1/24
+	 ip address 201.0.2.1/24
 	!
 	interface eth1
+	 ip address 201.0.1.1/24
 	!
 	interface eth0
+	 ip address 201.0.0.1/24
 	!
     }
     canvas c1
-    iconcoords {189.0 118.0}
-    labelcoords {189.0 150.0}
+    iconcoords {239.0 113.0}
+    labelcoords {241.0 99.0}
     interface-peer {eth0 n2}
     interface-peer {eth1 n4}
     interface-peer {eth2 n39}
+    services {IPForward UserDefined}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	cmdup=('ip addr add 201.0.0.1/24 dev eth0', 'ip addr add 201.0.1.1/24 dev eth1', 'ip addr add 201.0.2.1/24 dev eth2', )
+	}
+    }
 }
 
 node n2 {
@@ -34,8 +44,8 @@ node n2 {
 	!
     }
     canvas c1
-    iconcoords {429.0 216.0}
-    labelcoords {429.0 248.0}
+    iconcoords {435.0 284.0}
+    labelcoords {435.0 316.0}
     interface-peer {eth0 n1}
     interface-peer {eth1 n5}
     services {IPForward UserDefined}
@@ -86,15 +96,16 @@ node n4 {
     network-config {
 	hostname R4
 	!
+	interface eth1
+	 ip address 201.0.1.2/24
+	!
 	interface eth0
 	 ip address 10.25.7.129/30
 	!
-	interface eth1
-	!
     }
     canvas c1
-    iconcoords {190.0 249.0}
-    labelcoords {190.0 281.0}
+    iconcoords {172.0 254.0}
+    labelcoords {172.0 286.0}
     interface-peer {eth0 n3}
     services {IPForward UserDefined}
     interface-peer {eth1 n1}
@@ -102,7 +113,7 @@ node n4 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.7.129/30 dev eth0', )
+	cmdup=('ip addr add 10.25.7.129/30 dev eth0', 'ip addr add 201.0.1.2/24 dev eth1', )
 	}
     }
 }
@@ -270,13 +281,21 @@ node n15 {
 	hostname PC10
 	!
 	interface eth0
-	 ip address 10.25.2.129/25
+	 ip address 10.25.2.130/25
 	!
     }
     canvas c1
     iconcoords {1141.0 940.0}
     labelcoords {1141.0 972.0}
     interface-peer {eth0 n32}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	cmdup=('ip addr add 10.25.2.130/25 dev eth0', )
+	}
+    }
+    services {DefaultRoute UserDefined}
 }
 
 node n16 {
@@ -286,13 +305,21 @@ node n16 {
 	hostname PC11
 	!
 	interface eth0
-	 ip address 10.25.2.1/25
+	 ip address 10.25.2.2/25
 	!
     }
     canvas c1
     iconcoords {1005.0 925.0}
     labelcoords {1005.0 957.0}
     interface-peer {eth0 n9}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	cmdup=('ip addr add 10.25.2.2/25 dev eth0', )
+	}
+    }
+    services {DefaultRoute UserDefined}
 }
 
 node n17 {
@@ -302,13 +329,21 @@ node n17 {
 	hostname PC12
 	!
 	interface eth0
-	 ip address 10.25.3.1/25
+	 ip address 10.25.3.2/25
 	!
     }
     canvas c1
     iconcoords {1307.0 931.0}
     labelcoords {1307.0 963.0}
     interface-peer {eth0 n14}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	cmdup=('ip addr add 10.25.3.2/25 dev eth0', )
+	}
+    }
+    services {DefaultRoute UserDefined}
 }
 
 node n18 {
@@ -385,14 +420,17 @@ node n20 {
     network-config {
 	hostname R10
 	!
-	interface eth0
-	 ip address 10.25.3.195/30
-	!
 	interface eth3
+	 ip address 10.25.3.1/25
 	!
 	interface eth2
+	 ip address 10.25.2.129/25
 	!
 	interface eth1
+	 ip address 10.25.2.1/25
+	!
+	interface eth0
+	 ip address 10.25.3.195/30
 	!
     }
     canvas c1
@@ -406,7 +444,7 @@ node n20 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.3.195/30 dev eth0', )
+	cmdup=('ip addr add 10.25.3.195/30 dev eth0', 'ip addr add 10.25.2.1/25 dev eth1', 'ip addr add 10.25.2.129/25 dev eth2', 'ip addr add 10.25.3.1/25 dev eth3', )
 	}
     }
     services {IPForward UserDefined}
@@ -459,8 +497,8 @@ node n24 {
 	!
     }
     canvas c1
-    iconcoords {361.0 710.0}
-    labelcoords {357.0 734.0}
+    iconcoords {356.0 758.0}
+    labelcoords {352.0 782.0}
     interface-peer {e0 n36}
     interface-peer {e1 n10}
 }
@@ -903,18 +941,26 @@ node n39 {
     network-config {
 	hostname R11
 	!
-	interface eth1
-	 ip address 10.0.1.2/24
-	!
 	interface eth0
-	 ip address 10.0.0.1/32
+	 ip address 192.168.10.1/24
+	!
+	interface eth1
+	 ip address 201.0.2.2/24
 	!
     }
     canvas c1
-    iconcoords {529.0 131.0}
-    labelcoords {529.0 163.0}
+    iconcoords {547.0 51.0}
+    labelcoords {547.0 83.0}
     interface-peer {eth0 n40}
     interface-peer {eth1 n1}
+    services {IPForward UserDefined}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	cmdup=('ip addr add 192.168.10.1/24 dev eth0', 'ip addr add 201.0.2.2/24 dev eth1', )
+	}
+    }
 }
 
 node n40 {
@@ -943,8 +989,8 @@ node n40 {
 	}
     }
     canvas c1
-    iconcoords {698.0 132.0}
-    labelcoords {698.0 164.0}
+    iconcoords {668.0 103.0}
+    labelcoords {668.0 135.0}
     interface-peer {e0 n39}
     interface-peer {e1 n41}
 }
@@ -960,35 +1006,17 @@ node n41 {
 	!
     }
     canvas c1
-    iconcoords {914.0 141.0}
-    labelcoords {914.0 173.0}
+    iconcoords {876.0 82.0}
+    labelcoords {876.0 114.0}
     interface-peer {eth0 n40}
-}
-
-node n42 {
-    type wlan
-    network-config {
-	hostname wlan42
-	!
-	mobmodel
-	coreapi
-	basic_range
-	!
-    }
     custom-config {
-	custom-config-id basic_range
-	custom-command {3 3 9 9 9}
+	custom-config-id service:UserDefined
+	custom-command UserDefined
 	config {
-	range=275
-	bandwidth=54000000
-	jitter=0
-	delay=20000
-	error=0
+	cmdup=('ip addr add 192.168.10.0/24 dev eth0', )
 	}
     }
-    canvas c1
-    iconcoords {94.0 62.0}
-    labelcoords {94.0 94.0}
+    services {DefaultRoute UserDefined}
 }
 
 link l1 {
@@ -1178,7 +1206,7 @@ link l40 {
 }
 
 annotation a1 {
-    iconcoords {51.0 29.0 353.0 191.0}
+    iconcoords {62 16 376 190}
     type rectangle
     label {ISP}
     labelcolor black
@@ -1223,7 +1251,7 @@ annotation a2 {
 }
 
 annotation a4 {
-    iconcoords {65 498 1017 623}
+    iconcoords {57.0 489.0 1013.0 616.0}
     type rectangle
     label {Red Troncal}
     labelcolor black
@@ -1253,7 +1281,7 @@ annotation a5 {
 }
 
 annotation a6 {
-    iconcoords {378 614 781 1010}
+    iconcoords {378.0 621.0 781.0 1010.0}
     type rectangle
     label {Comedor}
     labelcolor black
@@ -1283,12 +1311,12 @@ annotation a7 {
 }
 
 annotation a8 {
-    iconcoords {399 25 986 199}
+    iconcoords {386 5 993 199}
     type rectangle
     label {Casa}
     labelcolor black
     fontfamily {Arial}
-    fontsize 12
+    fontsize {12}
     color #c40048
     width 0
     border #c40048
@@ -1301,7 +1329,7 @@ canvas c1 {
     name {Canvas1}
     refpt {0 0 47.5791667 -122.132322 2.0}
     scale {150.0}
-    size {1500 1200}
+    size {1516 1304}
 }
 
 option global {
