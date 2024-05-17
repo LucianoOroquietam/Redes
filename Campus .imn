@@ -136,19 +136,19 @@ node n7 {
 	hostname Server2
 	!
 	interface eth0
-	 ip address 10.25.0.5/23
+	 ip address 10.25.0.2/23
 	!
     }
     canvas c1
-    iconcoords {944.0 377.0}
-    labelcoords {944.0 409.0}
+    iconcoords {940.6666666666666 383.6666666666667}
+    labelcoords {940.6666666666666 415.6666666666667}
     interface-peer {eth0 n5}
     services {DefaultRoute UserDefined}
     custom-config {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.0.5 dev eth0', )
+	cmdup=('ip addr add 10.25.0.2/23 dev eth0', )
 	}
     }
 }
@@ -1006,7 +1006,7 @@ node n2 {
 	hostname R2
 	!
 	interface eth0
-	 ip address 10.25.0.2/23
+	 ip address 201.0.0.2/24
 	!
 	interface eth1
 	 ip address 10.25.0.1/23
@@ -1021,7 +1021,7 @@ node n2 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.0.2/23 dev eth0', 'ip addr add 10.25.0.1/23 dev eth1', )
+	cmdup=('ip addr add 10.25.0.1/23 dev eth1', 'ip addr add 201.0.0.2/24 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
