@@ -56,7 +56,7 @@ node n3 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.0.3/23 dev eth0', 'ip addr add 10.25.7.130/30 dev eth1', 'ip addr add 10.25.7.1/25 dev eth2', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth2', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth2', )
+	cmdup=('ip addr add 10.25.0.3/23 dev eth0', 'ip addr add 10.25.7.130/30 dev eth1', 'ip addr add 10.25.7.1/25 dev eth2', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth2', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth2', 'ip route add 10.25.2.0/25 via 10.25.7.2 dev eth2', )
 	}
     }
     interface-peer {eth2 n8}
@@ -188,8 +188,8 @@ node n11 {
 	!
     }
     canvas c1
-    iconcoords {532.0 684.0}
-    labelcoords {573.0 686.0}
+    iconcoords {531.0 684.0}
+    labelcoords {572.0 686.0}
     interface-peer {eth0 n8}
     interface-peer {eth1 n22}
     interface-peer {eth2 n21}
@@ -230,7 +230,7 @@ node n12 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.7.2/25 dev eth1', 'ip addr add 10.25.3.193/30 dev eth0', 'ip addr add 10.25.3.129/26 dev eth2', )
+	cmdup=('ip addr add 10.25.7.2/25 dev eth1', 'ip addr add 10.25.3.193/30 dev eth0', 'ip addr add 10.25.3.129/26 dev eth2', 'ip route add default via 10.25.7.1 dev eth1', 'ip route add 10.25.2.0/25 via 10.25.3.195 dev eth1', 'ip route add 10.25.2.128/25 via 10.25.3.195 dev eth2', 'ip route add 10.25.3.0/25 via 10.25.3.195 dev eth3', )
 	}
     }
     services {IPForward UserDefined}
@@ -285,8 +285,8 @@ node n16 {
 	!
     }
     canvas c1
-    iconcoords {1005.0 925.0}
-    labelcoords {1005.0 957.0}
+    iconcoords {1009.0 923.0}
+    labelcoords {1009.0 955.0}
     interface-peer {eth0 n9}
     custom-config {
 	custom-config-id service:UserDefined
@@ -420,7 +420,7 @@ node n20 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.3.195/30 dev eth0', 'ip addr add 10.25.2.1/25 dev eth1', 'ip addr add 10.25.2.129/25 dev eth2', 'ip addr add 10.25.3.1/25 dev eth3', )
+	cmdup=('ip addr add 10.25.3.195/30 dev eth0', 'ip addr add 10.25.2.1/25 dev eth1', 'ip addr add 10.25.2.129/25 dev eth2', 'ip addr add 10.25.3.1/25 dev eth3', 'ip route add default via 10.25.3.193 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
