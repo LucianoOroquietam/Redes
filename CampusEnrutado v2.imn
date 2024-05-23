@@ -56,7 +56,7 @@ node n3 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.0.3/23 dev eth0', 'ip addr add 10.25.7.130/30 dev eth1', 'ip addr add 10.25.7.1/25 dev eth2', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth2', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth2', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth2', 'ip route add default via 10.25.7.129 dev eth1', )
+	cmdup=('ip addr add 10.25.0.3/23 dev eth0', 'ip addr add 10.25.7.130/30 dev eth1', 'ip addr add 10.25.7.1/25 dev eth2', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth2', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth2', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth2', 'ip route add default via 10.25.7.129 dev eth1', 'ip route add 10.25.7.128/30 via 10.25.7.129 dev eth1', )
 	}
     }
     interface-peer {eth2 n8}
@@ -76,8 +76,8 @@ node n4 {
 	!
     }
     canvas c1
-    iconcoords {172.0 254.0}
-    labelcoords {172.0 286.0}
+    iconcoords {185.0 279.0}
+    labelcoords {185.0 311.0}
     interface-peer {eth0 n3}
     services {IPForward UserDefined}
     interface-peer {eth1 n1}
@@ -85,7 +85,7 @@ node n4 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.7.129/30 dev eth0', 'ip addr add 201.0.1.2/24 dev eth1', 'ip route add default via 201.0.1.1 dev eth1', )
+	cmdup=('ip addr add 10.25.7.129/30 dev eth0', 'ip addr add 201.0.1.2/24 dev eth1', 'ip route add default via 201.0.1.1 dev eth1', 'ip route add 10.25.4.0/23 via 10.25.7.130 dev eth0', 'ip route add 10.25.6.0/24 via 10.25.7.130 dev eth0', 'ip route add 10.25.2.0/23 via 10.25.7.130 dev eth0', )
 	}
     }
 }
@@ -313,7 +313,7 @@ node n11 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.6.129/26 dev eth2', 'ip addr add 10.25.7.4/25 dev eth0', 'ip addr add 10.25.6.209/30 dev eth3', 'ip addr add 10.25.6.193/28 dev eth1', 'ip route add default via 10.25.7.1 dev eth0', 'ip route add 10.25.6.0/25 via 10.25.6.210 dev eth3', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth0', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth0', )
+	cmdup=('ip addr add 10.25.6.129/26 dev eth2', 'ip addr add 10.25.7.4/25 dev eth0', 'ip addr add 10.25.6.209/30 dev eth3', 'ip addr add 10.25.6.193/28 dev eth1', 'ip route add 10.25.6.0/25 via 10.25.6.210 dev eth3', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth0', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth0', 'ip route add default via 10.25.7.1 dev eth0', 'ip route add 10.25.7.128/30 via 10.25.7.1 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
@@ -346,7 +346,7 @@ node n12 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.3.193/30 dev eth0', 'ip addr add 10.25.3.129/26 dev eth2', 'ip addr add 10.25.7.2/25 dev eth1', 'ip route add 10.25.2.0/25 via 10.25.3.194 dev eth0', 'ip route add 10.25.2.128/25 via 10.25.3.194 dev eth0', 'ip route add 10.25.3.0/25 via 10.25.3.194 dev eth0', 'ip route add default via 10.25.7.1 dev eth1', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth1', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth1', )
+	cmdup=('ip addr add 10.25.3.193/30 dev eth0', 'ip addr add 10.25.3.129/26 dev eth2', 'ip addr add 10.25.7.2/25 dev eth1', 'ip route add 10.25.2.0/25 via 10.25.3.194 dev eth0', 'ip route add 10.25.2.128/25 via 10.25.3.194 dev eth0', 'ip route add 10.25.3.0/25 via 10.25.3.194 dev eth0', 'ip route add default via 10.25.7.1 dev eth1', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth1', 'ip route add 10.25.4.0/23 via 10.25.7.3 dev eth1', 'ip route add 10.25.7.128/30 via 10.25.7.1 dev eth1', )
 	meta=meta=Customize this service to do anything upon startup.
 	starttime=
 	}
@@ -467,8 +467,8 @@ node n19 {
 	!
     }
     canvas c1
-    iconcoords {939.0 843.0}
-    labelcoords {971.0 877.0}
+    iconcoords {938.0 843.0}
+    labelcoords {970.0 877.0}
     interface-peer {eth0 n13}
 }
 
@@ -503,7 +503,7 @@ node n10 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ip addr add 10.25.7.3/25 dev eth0', 'ip addr add 10.25.5.1/27 dev eth1', 'ip addr add 10.25.5.33/27 dev eth2', 'ip addr add 10.25.5.65/30 dev eth3', 'ip route add default via 10.25.7.1 dev eth0', 'ip route add 10.25.4.0/25 via 10.25.5.66 dev eth3', 'ip route add 10.25.4.128/25 via 10.25.5.66 dev eth3', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth0', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth0', )
+	cmdup=('ip addr add 10.25.7.3/25 dev eth0', 'ip addr add 10.25.5.1/27 dev eth1', 'ip addr add 10.25.5.33/27 dev eth2', 'ip addr add 10.25.5.65/30 dev eth3', 'ip route add default via 10.25.7.1 dev eth0', 'ip route add 10.25.4.0/25 via 10.25.5.66 dev eth3', 'ip route add 10.25.4.128/25 via 10.25.5.66 dev eth3', 'ip route add 10.25.6.0/24 via 10.25.7.4 dev eth0', 'ip route add 10.25.2.0/23 via 10.25.7.2 dev eth0', 'ip route add 10.25.7.128/30 via 10.25.7.1 dev eth0', )
 	}
     }
 }
@@ -610,8 +610,8 @@ node n25 {
 	!
     }
     canvas c1
-    iconcoords {37.0 895.0}
-    labelcoords {37.0 927.0}
+    iconcoords {37.0 894.0}
+    labelcoords {37.0 926.0}
     interface-peer {eth0 n23}
     custom-config {
 	custom-config-id service:UserDefined
@@ -1057,8 +1057,8 @@ node n39 {
 	!
     }
     canvas c1
-    iconcoords {547.0 51.0}
-    labelcoords {547.0 83.0}
+    iconcoords {547.0 50.0}
+    labelcoords {547.0 82.0}
     interface-peer {eth0 n40}
     interface-peer {eth1 n1}
     services {IPForward UserDefined}
